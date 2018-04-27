@@ -1,0 +1,10 @@
+Sep 24 22:04:14 pro softwareupdate_firstrun_tasks[63]: Host swscan.apple.com isReachable = YES
+Sep 24 22:04:20 pro loginwindow[83]: IASGetCurrentInstallPhaseList: no install phase array set
+Sep 24 22:04:20 pro loginwindow[83]: IASGetCurrentInstallPhase: no install phase set
+Sep 24 22:04:20 pro loginwindow[83]: ISAP: show progress UI called.
+Sep 24 22:04:20 pro loginwindow[83]: ISAP: Done with phase "IOKit Boot"
+Sep 24 22:04:21 pro storagekitd[347]: Starting SKDaemon...
+Sep 24 22:04:21 pro storagekitd[347]: Client entitled for destructive operations
+Sep 24 22:04:21 pro storagekitd[347]: Adding client connection <NSXPCConnection: 0x7f95ed500d60> connection from pid 345
+Sep 24 22:04:25 pro mbsystemadministration[345]: Connected to daemon. Language set to: German
+
