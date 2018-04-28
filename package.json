@@ -1,0 +1,93 @@
+{
+  "name": "log-stream-analyser",
+  "version": "0.0.0-semantic-release",
+  "main": "dist/index.js",
+  "description": "split a log stream into events",
+  "keywords": [
+    "npm-package-template"
+  ],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "cover": "nyc --temp-directory build/nyc ava",
+    "precover": "rollup -c tests/rollup.config.js",
+    "test": "ava",
+    "pretest": "rollup -c tests/rollup.config.js",
+    "posttest": "npm run prepare && markdown-doctest",
+    "prepare": "rollup -c",
+    "docs": "documentation readme {{module}} --section=API",
+    "lint": "documentation lint {{module}}",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jsdoc-babel": "-",
+    "jsdoc-to-markdown": "-",
+    "jsdoc": "-",
+    "istanbul": "-",
+    "mocha": "-",
+    "chai": "-",
+    "xo": "-",
+    "cz-conventional-changelog": "-",
+    "babel-plugin-transform-async-generator-functions": "-",
+    "mocha-lcov-reporter": "-",
+    "documentation": "^6.3.2",
+    "markdown-doctest": "^0.9.1",
+    "nyc": "^11.7.1",
+    "ava": "^0.25.0",
+    "rollup": "^0.58.2",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-multi-entry": "^2.0.2",
+    "rollup-plugin-executable": "^1.2.0",
+    "semantic-release": "^15.1.7",
+    "travis-deploy-once": "^4.4.1"
+  },
+  "engines": {
+    "node": ">=8.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/log-stream-analyser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/log-stream-analyser/issues"
+  },
+  "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
+  "ava": {
+    "files": [
+      "build/*-test.js"
+    ],
+    "presets": [
+      "env"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "build/*-test.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "report-dir": "./build/coverage"
+  },
+  "xo": {
+    "space": true
+  },
+  "template": {
+    "repository": {
+      "url": "https://github.com/arlac77/npm-package-template.git"
+    }
+  }
+}
