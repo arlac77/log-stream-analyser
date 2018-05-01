@@ -15,4 +15,15 @@ test('install.log', async t => {
     t.is(e.hostname, 'pro');
   }
   */
+
+  const eventIter = await lsa[Symbol.asyncIterator]();
+
+  const event = (await eventIter.next()).value;
+
+  t.deepEqual(event, {
+    date: 'Sep 24 22:04:14',
+    hostname: 'pro',
+    message:
+      'softwareupdate_firstrun_tasks[63]: Host swscan.apple.com isReachable = YES'
+  });
 });
