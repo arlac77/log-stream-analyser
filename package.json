@@ -36,8 +36,18 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-multi-entry": "^2.0.2",
     "rollup-plugin-executable": "^1.2.0",
-    "semantic-release": "^15.1.8",
-    "travis-deploy-once": "^5.0.0"
+    "semantic-release": "^15.1.11",
+    "travis-deploy-once": "^5.0.0",
+    "jsdoc-babel": "-",
+    "jsdoc-to-markdown": "-",
+    "jsdoc": "-",
+    "istanbul": "-",
+    "mocha": "-",
+    "chai": "-",
+    "xo": "-",
+    "cz-conventional-changelog": "-",
+    "babel-plugin-transform-async-generator-functions": "-",
+    "mocha-lcov-reporter": "-"
   },
   "engines": {
     "node": ">=8.11"
