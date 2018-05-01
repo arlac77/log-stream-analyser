@@ -3,7 +3,9 @@
   "version": "0.0.0-semantic-release",
   "main": "dist/index.js",
   "description": "split log stream into events",
-  "keywords": ["npm-package-template"],
+  "keywords": [
+    "npm-package-template"
+  ],
   "contributors": [
     {
       "name": "Markus Felten",
@@ -49,13 +51,24 @@
   },
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "ava": {
-    "files": ["build/*-test.js"],
-    "presets": ["env"],
-    "require": ["babel-register"]
+    "files": [
+      "build/*-test.js"
+    ],
+    "presets": [
+      "env"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
   "nyc": {
-    "include": ["build/*-test.js"],
-    "reporter": ["lcov", "text"],
+    "include": [
+      "build/*-test.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
     "report-dir": "./build/coverage"
   },
   "xo": {
