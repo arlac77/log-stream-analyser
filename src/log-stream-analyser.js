@@ -2,7 +2,15 @@
  *
  */
 export class LogStreamAnalyser {
-  constructor() {}
+  constructor() {
+    this[Symbol.asyncIterator] = async function() {
+      return {
+        async next() {
+          return { done: true };
+        }
+      };
+    };
+  }
 
   async addStream(stream) {
     stream.setEncoding('utf8');
@@ -12,7 +20,7 @@ export class LogStreamAnalyser {
     const i = stream[Symbol.asyncIterator]();
     //console.log(i);
     const r = await i.next();
-    console.log(r);
+    console.log(r.value);
     /*
     for await (const chunk of stream) {
       console.log(chunk);
