@@ -6,7 +6,7 @@ import { LogStreamAnalyser } from '../src/log-stream-analyser';
 test('install.log', async t => {
   const lsa = new LogStreamAnalyser();
 
-  lsa.addStream(
+  lsa.addSource(
     createReadStream(join(__dirname, '..', 'tests', 'fixtures', 'install.log'))
   );
 
