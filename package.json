@@ -2,10 +2,9 @@
   "name": "log-stream-analyser",
   "version": "0.0.0-semantic-release",
   "main": "dist/index.js",
+  "module": "src/log-stream-analyser.mjs",
   "description": "split log stream into events",
-  "keywords": [
-    "npm-package-template"
-  ],
+  "keywords": [],
   "contributors": [
     {
       "name": "Markus Felten",
@@ -20,8 +19,8 @@
     "pretest": "rollup -c tests/rollup.config.js",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
-    "docs": "documentation readme {{module}} --section=API",
-    "lint": "documentation lint {{module}}",
+    "docs": "documentation readme src/log-stream-analyser.mjs --section=API",
+    "lint": "documentation lint src/log-stream-analyser.mjs",
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
   },
@@ -51,24 +50,13 @@
   },
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "ava": {
-    "files": [
-      "build/*-test.js"
-    ],
-    "presets": [
-      "env"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["build/*-test.js"],
+    "presets": ["env"],
+    "require": ["babel-register"]
   },
   "nyc": {
-    "include": [
-      "build/*-test.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
+    "include": ["build/*-test.js"],
+    "reporter": ["lcov", "text"],
     "report-dir": "./build/coverage"
   },
   "xo": {

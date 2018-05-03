@@ -1,12 +1,28 @@
+const { createReadStream } = require('fs');
+const { join } = require('path');
+
 /**
  *
  */
-export class LogStreamAnalyser {
+class LogStreamAnalyser {
   constructor() {
     Object.defineProperties(this, { sources: { value: [] } });
   }
 
-  [Symbol.asyncIterator]() {
+  async *[Symbol.asyncIterator]() {
+    const sources = this.sources;
+
+    for (const stream of sources) {
+      const i = stream[Symbol.asyncIterator]();
+      const r = await i.next();
+      if (r.done === false) {
+        yield r.value;
+      }
+    }
+  }
+
+  /*
+  async *[Symbol.asyncIterator]() {
     const sources = this.sources;
     return {
       async next() {
@@ -14,6 +30,8 @@ export class LogStreamAnalyser {
           const i = stream[Symbol.asyncIterator]();
           const r = await i.next();
           if (r.done === false) {
+            //const lines = r.value.split(/\r?\n/);
+
             return { done: false, value: r.value };
           }
         }
@@ -22,8 +40,9 @@ export class LogStreamAnalyser {
       }
     };
   }
+*/
 
-  async addSource(stream) {
+  addSource(stream) {
     stream.setEncoding('utf8');
 
     this.sources.push(stream);
@@ -43,3 +62,17 @@ export class LogStreamAnalyser {
     */
   }
 }
+
+async function ab() {
+  const lsa = new LogStreamAnalyser();
+  //lsa.addSource(process.stdin);
+  lsa.addSource(
+    createReadStream(join(__dirname, '..', 'tests', 'fixtures', 'install.log'))
+  );
+
+  for await (const e of lsa) {
+    console.log(e);
+  }
+}
+
+ab();
