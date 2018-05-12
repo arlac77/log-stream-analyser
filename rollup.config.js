@@ -3,9 +3,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import executable from 'rollup-plugin-executable';
 import pkg from './package.json';
 
-
 export default [
-  ...Object.keys(pkg.bin).map(name => {
+  ...Object.keys(pkg.bin || {}).map(name => {
     return {
       input: `src/${name}.js`,
       output: {
