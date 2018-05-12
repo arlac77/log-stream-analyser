@@ -1,10 +1,7 @@
-const { createReadStream } = require('fs');
-const { join } = require('path');
-
 /**
  *
  */
-class LogStreamAnalyser {
+export class LogStreamAnalyser {
   async *process(chunk) {
     const lines = chunk.split(/\r?\n/);
     for (const line of lines) {
@@ -33,41 +30,3 @@ class LogStreamAnalyser {
     }
   }
 }
-
-/**
- *
- */
-class LogStreamAggregator {
-  constructor() {
-    Object.defineProperties(this, { sources: { value: [] } });
-  }
-
-  async *[Symbol.asyncIterator]() {
-    for (const source of this.sources) {
-      for await (const chunk of source.stream) {
-        for await (const event of source.analyser.process(chunk)) {
-          yield event;
-        }
-      }
-    }
-  }
-
-  addSource(stream, analyser) {
-    stream.setEncoding('utf8');
-    this.sources.push({ stream, analyser });
-  }
-}
-
-async function ab() {
-  const lsa = new LogStreamAggregator();
-  lsa.addSource(
-    createReadStream(join(__dirname, '..', 'tests', 'fixtures', 'install.log')),
-    new LogStreamAnalyser()
-  );
-
-  for await (const e of lsa) {
-    console.log(`event:${JSON.stringify(e)}`);
-  }
-}
-
-ab();
