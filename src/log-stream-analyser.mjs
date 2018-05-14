@@ -2,9 +2,15 @@
  *
  */
 export class LogStreamAnalyser {
+  constructor(recordSeparator = /\r?\n/) {
+    Object.defineProperties(this, {
+      recordSeparator: { value: recordSeparator }
+    });
+  }
+
   async *process(stream) {
     for await (const chunk of stream) {
-      const lines = chunk.split(/\r?\n/);
+      const lines = chunk.split(this.recordSeparator);
       for (const line of lines) {
         const m = line.match(
           /^(?<month>\w+)\s+(?<mday>\d+)\s+(?<hours>\d+):(?<minutes>\d+):(?<seconds>\d+)\s+(?<host>\w+)\s+(?<message>.*)/
