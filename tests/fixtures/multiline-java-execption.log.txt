@@ -1,0 +1,22 @@
+07/07/2016 13:35:11.654 [tomcat-http--43] [ERROR] [4114723 ms] Warning - unprocessed rows in esolutions.care.assess.WeAssessmentesolutions.EsolutionsException: There were 83 unprocessed rows out of 84
+    at esolutions.base.WeObject.sleep(WeObject.java:2767)
+    at esolutions.base.WeObject.clear(WeObject.java:3250)
+    at esolutions.care.assess.WeAssessment.clear(WeAssessment.java:7699)
+    at esolutions.base.WeObject.close(WeObject.java:2815)
+    at esolutions.util.WeHTMLTable.getTableHTML(WeHTMLTable.java:541)
+    at esolutions.util.WeHTMLTable.toHTML(WeHTMLTable.java:508)
+    at org.apache.jsp.admin.client.cp_005fassessment_jsp._jspService(cp_005fassessment_jsp.java:4412)
+    at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+
+07/07/2016 13:36:21.828 [tomcat-http--26] [ERROR] [4184897 ms] Warning - unprocessed rows in esolutions.care.assess.WeAssessmentesolutions.EsolutionsException: There were 82 unprocessed rows out of 83
+    at esolutions.base.WeObject.sleep(WeObject.java:2767)
+    at esolutions.base.WeObject.clear(WeObject.java:3250)
+    at esolutions.care.assess.WeAssessment.clear(WeAssessment.java:7699)
+    at esolutions.base.WeObject.close(WeObject.java:2815)
+    at esolutions.util.WeHTMLTable.getTableHTML(WeHTMLTable.java:541)
+    at esolutions.util.WeHTMLTable.toHTML(WeHTMLTable.java:508)
+    at org.apache.jsp.admin.client.cp_005fassessment_jsp._jspService(cp_005fassessment_jsp.java:4412)
+    at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+    at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+    at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:432)
+  

@@ -7,7 +7,9 @@ async function ab() {
   const lsa = new LogStreamAggregator();
 
   lsa.addSource(
-    createReadStream(join(__dirname, '..', 'tests', 'fixtures', 'install.log')),
+    createReadStream(
+      join(__dirname, '..', 'tests', 'fixtures', 'install.log.txt')
+    ),
     new LogStreamAnalyser()
   );
 
