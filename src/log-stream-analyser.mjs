@@ -7,7 +7,7 @@ export class LogStreamAnalyser {
       const lines = chunk.split(/\r?\n/);
       for (const line of lines) {
         const m = line.match(
-          /^(\w+)\s+(\d+)\s+(\d+):(\d+):(\d+)\s+(\w+)\s+(.*)/
+          /^(?<month>\w+)\s+(?<mday>\d+)\s+(?<hours>\d+):(?<minutes>\d+):(?<seconds>\d+)\s+(?<host>\w+)\s+(?<message>.*)/
         );
         if (m) {
           const m2n = {
@@ -25,9 +25,16 @@ export class LogStreamAnalyser {
             Dec: 11
           };
           yield {
-            date: new Date(2018, m2n[m[1]], m[2], m[3], m[4], m[5]),
-            host: m[6],
-            message: m[7]
+            date: new Date(
+              2018,
+              m2n[m.groups.month],
+              m.groups.mday,
+              m.groups.hours,
+              m.groups.minutes,
+              m.groups.seconds
+            ),
+            host: m.groups.host,
+            message: m.groups.message
           };
         }
       }
