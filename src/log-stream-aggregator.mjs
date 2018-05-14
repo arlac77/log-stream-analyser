@@ -8,10 +8,8 @@ export class LogStreamAggregator {
 
   async *[Symbol.asyncIterator]() {
     for (const source of this.sources) {
-      for await (const chunk of source.stream) {
-        for await (const event of source.analyser.process(chunk)) {
-          yield event;
-        }
+      for await (const event of source.analyser.process(source.stream)) {
+        yield event;
       }
     }
   }
