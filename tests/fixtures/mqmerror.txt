@@ -1,0 +1,17 @@
+-------
+05/19/2018 02:07:36 PM - Process(12345.1) User(mq) Program(runmqchl)
+                    Host(myhost.mydomain.com) Installation(Installation1)
+                    VRMF(8.0.0.6) QMgr(QMGR0001)
+
+AMQ9526: Message sequence number error for channel 'SOURCE.DESTINATION'.
+
+EXPLANATION:
+The local and remote
+A message with sequence number 1 has been sent when sequence number
+12345678 was expected. The remote host is 'remote100 (10.0.0.1)(1234)'.
+ACTION:
+Determine
+----- cmqxrfpt.c : 564 ---------
+05/19/2018 02:07:36 PM - Process(12345.1) User(mq) Program(runmqchl)
+                    Host(myhost.mydomain.com) Installation(Installation1)
+                    VRMF(8.0.0.6) QMgr(QMGR0001)

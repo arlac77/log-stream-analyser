@@ -1,0 +1,3 @@
+May 14 11:13:58 myhostname xinetd[13963]: FAIL: MQSeries1322 libwrap from=10.10.0.2
+May 14 11:13:59 myhostname xinetd[13963]: FAIL: MQSeries1322 libwrap from=10.10.0.3
+May 14 11:13:60 myhostname xinetd[13963]: FAIL: MQSeries1322 libwrap from=10.10.0.4
