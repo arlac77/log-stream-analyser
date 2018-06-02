@@ -1,6 +1,9 @@
 {
   "name": "log-stream-analyser",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "module": "src/log-stream-analyser.mjs",
   "description": "split log stream into events",
