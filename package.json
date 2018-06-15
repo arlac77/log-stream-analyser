@@ -32,7 +32,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^1.0.0-beta.6",
     "documentation": "^8.0.0",
     "markdown-doctest": "^0.9.1",
     "nyc": "^12.0.2",
@@ -56,13 +56,24 @@
   },
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "ava": {
-    "files": ["build/*-test.mjs"],
-    "presets": ["env"],
-    "require": ["babel-register"]
+    "files": [
+      "build/*-test.mjs"
+    ],
+    "presets": [
+      "env"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
   "nyc": {
-    "include": ["build/*-test.mjs"],
-    "reporter": ["lcov", "text"],
+    "include": [
+      "build/*-test.mjs"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
     "report-dir": "./build/coverage"
   },
   "xo": {
