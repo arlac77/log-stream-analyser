@@ -56,24 +56,13 @@
   },
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "ava": {
-    "files": [
-      "build/*-test.js"
-    ],
-    "presets": [
-      "env"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["build/*-test.mjs"],
+    "presets": ["env"],
+    "require": ["babel-register"]
   },
   "nyc": {
-    "include": [
-      "build/*-test.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
+    "include": ["build/*-test.mjs"],
+    "reporter": ["lcov", "text"],
     "report-dir": "./build/coverage"
   },
   "xo": {
