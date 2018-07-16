@@ -1,3 +1,5 @@
+import istanbul from 'rollup-plugin-istanbul';
+
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import multiEntry from 'rollup-plugin-multi-entry';
@@ -10,5 +12,7 @@ export default {
     sourcemap: true
   },
   external: ['ava', 'fs', 'path'],
-  plugins: [multiEntry(), resolve(), commonjs()]
+  plugins: [multiEntry(), resolve(), commonjs(), istanbul({
+    exclude: ['tests/**/*-test.js']
+  })]
 };
