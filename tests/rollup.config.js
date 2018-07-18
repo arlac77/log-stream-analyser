@@ -9,7 +9,8 @@ export default {
   output: {
     file: 'build/bundle-test.mjs',
     format: 'cjs',
-    sourcemap: true
+    sourcemap: true,
+    interop: false
   },
   external: ['ava', 'fs', 'path'],
   plugins: [multiEntry(), resolve(), commonjs(), istanbul({
