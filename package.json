@@ -4,10 +4,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/index.js",
+  "main": "dist/log-stream-analyser.js",
   "module": "src/log-stream-analyser.mjs",
   "description": "split log stream into events",
-  "keywords": [],
+  "keywords": ["log"],
   "contributors": [
     {
       "name": "Markus Felten",
@@ -46,7 +46,7 @@
     "rollup-plugin-istanbul": "^2.0.1"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=10.7"
   },
   "repository": {
     "type": "git",
@@ -57,24 +57,13 @@
   },
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "ava": {
-    "files": [
-      "build/*-test.mjs"
-    ],
-    "presets": [
-      "env"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["build/*-test.mjs"],
+    "presets": ["env"],
+    "require": ["babel-register"]
   },
   "nyc": {
-    "include": [
-      "build/*-test.mjs"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
+    "include": ["build/*-test.mjs"],
+    "reporter": ["lcov", "text"],
     "report-dir": "./build/coverage"
   },
   "xo": {
