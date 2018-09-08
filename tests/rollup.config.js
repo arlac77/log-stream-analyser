@@ -7,7 +7,7 @@ import babel from "rollup-plugin-babel";
 export default {
   input: "tests/**/*-test.mjs",
   output: {
-    file: "build/bundle-test.mjs",
+    file: "build/bundle-test.js",
     format: "cjs",
     sourcemap: true,
     interop: false

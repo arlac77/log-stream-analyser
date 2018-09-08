@@ -63,7 +63,7 @@
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "ava": {
     "files": [
-      "build/*-test.mjs"
+      "build/*-test.js"
     ],
     "presets": [
       "env"
