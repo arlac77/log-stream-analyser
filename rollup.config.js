@@ -37,7 +37,8 @@ export default [
       output: {
         file: pkg.bin[name],
         format: "cjs",
-        banner: "#!/usr/bin/env node",
+        banner:
+          "#!/usr/bin/env node --experimental-modules --experimental-worker",
         interop: false
       },
       plugins: [...plugins, executable()]
