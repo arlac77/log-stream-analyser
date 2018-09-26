@@ -5,6 +5,8 @@ import executable from "rollup-plugin-executable";
 import pkg from "./package.json";
 import babel from "rollup-plugin-babel";
 
+const external = ["fs", "path"];
+
 const plugins = [
   resolve(),
   commonjs(),
@@ -33,7 +35,7 @@ const plugins = [
 export default [
   ...Object.keys(pkg.bin || {}).map(name => {
     return {
-      input: `src/${name}.js`,
+      input: `src/${name}.mjs`,
       output: {
         file: pkg.bin[name],
         format: "cjs",
@@ -41,7 +43,8 @@ export default [
           "#!/usr/bin/env node --experimental-modules --experimental-worker",
         interop: false
       },
-      plugins: [...plugins, executable()]
+      plugins: [...plugins, executable()],
+      external
     };
   }),
   {
@@ -51,6 +54,7 @@ export default [
       format: "cjs",
       interop: false
     },
-    plugins
+    plugins,
+    external
   }
 ];
