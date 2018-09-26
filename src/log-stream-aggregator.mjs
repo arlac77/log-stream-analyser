@@ -1,5 +1,5 @@
 /**
- *
+ * @property {Object} sources
  */
 export class LogStreamAggregator {
   constructor() {
