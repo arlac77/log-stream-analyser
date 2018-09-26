@@ -1,5 +1,5 @@
 /**
- * @property {Object} sources
+ * @property {Object[]} sources
  */
 export class LogStreamAggregator {
   constructor() {
@@ -14,8 +14,12 @@ export class LogStreamAggregator {
     }
   }
 
+  /**
+   * @param {ReadableStream} stream
+   * @param {LogStreamAnalyster} analyser
+   */
   addSource(stream, analyser) {
-    stream.setEncoding('utf8');
+    stream.setEncoding("utf8");
     this.sources.push({ stream, analyser });
   }
 }

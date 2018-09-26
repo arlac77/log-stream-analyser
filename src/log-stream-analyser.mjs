@@ -4,14 +4,14 @@
 export class LogStreamAnalyser {
   constructor(recordSeparator = /\r?\n/) {
     Object.defineProperties(this, {
+      referenceDate: { value: new Date() },
       recordSeparator: { value: recordSeparator }
     });
   }
 
   async *process(stream) {
     for await (const chunk of stream) {
-      const lines = chunk.split(this.recordSeparator);
-      for (const line of lines) {
+      for (const line of chunk.split(this.recordSeparator)) {
         const m = line.match(
           /^(?<month>\w+)\s+(?<mday>\d+)\s+(?<hours>\d+):(?<minutes>\d+):(?<seconds>\d+)\s+(?<host>\w+)\s+(?<message>.*)/
         );
@@ -32,7 +32,7 @@ export class LogStreamAnalyser {
           };
           yield {
             date: new Date(
-              2018,
+              this.referenceDate.getFullYear(),
               m2n[m.groups.month],
               m.groups.mday,
               m.groups.hours,
