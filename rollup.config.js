@@ -2,6 +2,7 @@ import cleanup from "rollup-plugin-cleanup";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import executable from "rollup-plugin-executable";
+import json from "rollup-plugin-json";
 import pkg from "./package.json";
 import babel from "rollup-plugin-babel";
 
@@ -40,7 +41,7 @@ export default [
           "#!/usr/bin/env node --experimental-modules --experimental-worker",
         interop: false
       },
-      plugins: [...plugins, executable()],
+      plugins: [...plugins, json(), executable()],
       external
     };
   }),
