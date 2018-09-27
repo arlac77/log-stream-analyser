@@ -1,4 +1,3 @@
-import { join } from "path";
 import { createReadStream } from "fs";
 import { LogStreamAggregator } from "./log-stream-aggregator";
 import { LogStreamAnalyser } from "./log-stream-analyser";
@@ -6,12 +5,7 @@ import { LogStreamAnalyser } from "./log-stream-analyser";
 async function ab() {
   const lsa = new LogStreamAggregator();
 
-  lsa.addSource(
-    createReadStream(
-      join(__dirname, "..", "tests", "fixtures", "install.log.txt")
-    ),
-    new LogStreamAnalyser()
-  );
+  lsa.addSource(createReadStream(process.argv[2]), new LogStreamAnalyser());
 
   for await (const e of lsa) {
     console.log(`event:${JSON.stringify(e)}`);

@@ -35,7 +35,7 @@ export default [
       input: `src/${name}.mjs`,
       output: {
         file: pkg.bin[name],
-        format: "cjs",
+        format: "es",
         banner:
           "#!/usr/bin/env node --experimental-modules --experimental-worker",
         interop: false
