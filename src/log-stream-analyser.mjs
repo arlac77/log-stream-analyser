@@ -13,7 +13,7 @@ export class LogStreamAnalyser {
     for await (const chunk of stream) {
       for (const line of chunk.split(this.recordSeparator)) {
         const m = line.match(
-          /^(?<month>\w+)\s+(?<mday>\d+)\s+(?<hours>\d+):(?<minutes>\d+):(?<seconds>\d+)\s+(?<host>\w+)\s+(?<message>.*)/
+          /^(?<month>\w+)\s+(?<mday>\d+)\s+(?<hours>\d+):(?<minutes>\d+):(?<seconds>\d+)\s+(?<host>\w+)\s+(?<process>[\w_]+)\[(?<pid>\d+)\]:\s+(?<message>.*)/
         );
         if (m) {
           const m2n = {
@@ -40,6 +40,8 @@ export class LogStreamAnalyser {
               m.groups.seconds
             ),
             host: m.groups.host,
+            process: m.groups.process,
+            pid: m.groups.pid,
             message: m.groups.message
           };
         }
