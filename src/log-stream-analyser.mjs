@@ -1,3 +1,6 @@
+import { SystemLogMatcher } from './line-matcher';
+
+
 /**
  *
  */
@@ -10,41 +13,20 @@ export class LogStreamAnalyser {
   }
 
   async *process(stream) {
+
+    const matcher = [ SystemLogMatcher ];
+
     for await (const chunk of stream) {
       for (const line of chunk.split(this.recordSeparator)) {
-        const m = line.match(
-          /^(?<month>\w+)\s+(?<mday>\d+)\s+(?<hours>\d+):(?<minutes>\d+):(?<seconds>\d+)\s+(?<host>\w+)\s+(?<process>[\w_]+)\[(?<pid>\d+)\]:\s+(?<message>.*)/
-        );
-        if (m) {
-          const m2n = {
-            Jan: 0,
-            Feb: 1,
-            Mar: 2,
-            Apr: 3,
-            May: 4,
-            Jun: 5,
-            Jul: 6,
-            Aug: 7,
-            Sep: 8,
-            Oct: 9,
-            Nov: 10,
-            Dec: 11
-          };
-          yield {
-            date: new Date(
-              this.referenceDate.getFullYear(),
-              m2n[m.groups.month],
-              m.groups.mday,
-              m.groups.hours,
-              m.groups.minutes,
-              m.groups.seconds
-            ),
-            host: m.groups.host,
-            process: m.groups.process,
-            pid: m.groups.pid,
-            message: m.groups.message
-          };
+
+        for(const lm of matcher) {
+          const match = line.match(lm.regex);
+          if(match) {
+            yield lm.process(match, this);
+          }
         }
+
+        //console.log(`unknown line '${line}'`);
       }
     }
   }

@@ -4,7 +4,7 @@ import { createReadStream } from "fs";
 import { LogStreamAggregator } from "../src/log-stream-aggregator";
 import { LogStreamAnalyser } from "../src/log-stream-analyser";
 
-test("install.log", async t => {
+test("SystemLogMatcher install.log", async t => {
   const lsa = new LogStreamAggregator();
 
   const analyser = new LogStreamAnalyser();
@@ -23,8 +23,21 @@ test("install.log", async t => {
 
   t.deepEqual(events[0], {
     date: new Date("Sep 24 22:04:14 2018"),
-    host: "pro",
+    host: "pro.maydomain.com",
+    process: "softwareupdate_firstrun_tasks",
+    pid: 63,
+    scope: undefined,
     message:
-      "softwareupdate_firstrun_tasks[63]: Host swscan.apple.com isReachable = YES"
+      "Host swscan.apple.com isReachable = YES"
+  });
+
+  t.deepEqual(events[1], {
+    date: new Date("Sep 24 22:04:20 2018"),
+    host: "pro",
+    process: "loginwindow",
+    pid: 83,
+    scope: "IASGetCurrentInstallPhaseList",
+    message:
+      "no install phase array set"
   });
 });
