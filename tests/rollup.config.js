@@ -21,13 +21,12 @@ export default {
       plugins: ["@babel/plugin-proposal-async-generator-functions"],
       presets: [
         [
-          "env",
+          "@babel/preset-env",
           {
             targets: {
-              node: "10"
+              safari: "tp"
             },
-            modules: false,
-            loose: true
+            modules: false
           }
         ]
       ],

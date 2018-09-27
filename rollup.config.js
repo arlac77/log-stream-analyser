@@ -14,16 +14,13 @@ const plugins = [
     runtimeHelpers: false,
     externalHelpers: true,
     babelrc: false,
-    plugins: ["@babel/plugin-proposal-async-generator-functions"],
     presets: [
       [
-        "env",
+        "@babel/preset-env",
         {
           targets: {
-            node: "10"
-          },
-          modules: false,
-          loose: true
+            safari: "tp"
+          }
         }
       ]
     ],
