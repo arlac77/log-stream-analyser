@@ -1,0 +1,9 @@
+[2018/09/19 23:50:19.009356,  1] ../lib/param/loadparm.c:1823(lpcfg_do_global_parameter)
+  WARNING: The "syslog" option is deprecated
+[2018/09/19 23:50:19.009455,  1] ../lib/param/loadparm.c:1823(lpcfg_do_global_parameter)
+  WARNING: The "syslog only" option is deprecated
+[2018/09/19 23:50:40.757714,  1] ../lib/param/loadparm.c:1823(lpcfg_do_global_parameter)
+  WARNING: The "syslog" option is deprecated
+[2018/09/19 23:50:40.757850,  1] ../lib/param/loadparm.c:1823(lpcfg_do_global_parameter)
+  WARNING: The "syslog only" option is deprecated
+

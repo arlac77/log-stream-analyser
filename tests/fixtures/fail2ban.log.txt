@@ -1,0 +1,13 @@
+2018-09-25 19:46:29,817 fail2ban.filter         [287]: INFO      findtime: 3600
+2018-09-25 19:46:29,818 fail2ban.actions        [287]: INFO      banTime: 900
+2018-09-25 19:46:29,821 fail2ban.jail           [287]: INFO    Creating new jail 'ssh-iptables'
+2018-09-25 19:46:29,822 fail2ban.jail           [287]: INFO    Jail 'ssh-iptables' uses systemd {}
+2018-09-25 19:46:29,827 fail2ban.jail           [287]: INFO    Initiated 'systemd' backend
+2018-09-25 19:46:29,828 fail2ban.filter         [287]: INFO      maxLines: 1
+2018-09-25 19:46:29,950 fail2ban.filtersystemd  [287]: INFO    [ssh-iptables] Added journal match for: '_SYSTEMD_UNIT=sshd.service + _COMM=sshd'
+2018-09-25 19:46:29,951 fail2ban.filter         [287]: INFO      encoding: UTF-8
+2018-09-25 19:46:29,951 fail2ban.filter         [287]: INFO      maxRetry: 5
+2018-09-25 19:46:29,952 fail2ban.filter         [287]: INFO      findtime: 600
+2018-09-25 19:46:29,953 fail2ban.actions        [287]: INFO      banTime: 600
+2018-09-25 19:46:29,956 fail2ban.filtersystemd  [287]: NOTICE  Jail started without 'journalmatch' set. Jail regexs will be checked against all journal entries, which is not advised for performance reasons.
+
