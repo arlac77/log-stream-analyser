@@ -1,10 +1,12 @@
 import { createReadStream } from "fs";
 import { LogStreamAggregator } from "./log-stream-aggregator";
 import { LogStreamAnalyser } from "./log-stream-analyser";
+import { SystemLogMatcher, PacmanLogMatcher } from './line-matcher';
+
 import { version } from "../package.json";
 
 const lsa = new LogStreamAggregator();
-const analyser = new LogStreamAnalyser();
+const analyser = new LogStreamAnalyser([SystemLogMatcher, PacmanLogMatcher]);
 
 const [,, ...files] = process.argv;
 

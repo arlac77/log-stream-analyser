@@ -3,11 +3,12 @@ import { join } from "path";
 import { createReadStream } from "fs";
 import { LogStreamAggregator } from "../src/log-stream-aggregator";
 import { LogStreamAnalyser } from "../src/log-stream-analyser";
+import { SystemLogMatcher, PacmanLogMatcher } from '../src/line-matcher';
 
 test("SystemLogMatcher install.log", async t => {
   const lsa = new LogStreamAggregator();
 
-  const analyser = new LogStreamAnalyser();
+  const analyser = new LogStreamAnalyser([SystemLogMatcher]);
 
   lsa.addSource(
     createReadStream(
@@ -37,5 +38,30 @@ test("SystemLogMatcher install.log", async t => {
     pid: 83,
     scope: "IASGetCurrentInstallPhaseList",
     message: "no install phase array set"
+  });
+});
+
+test("PacmanLogMatcher pacman.log", async t => {
+  const lsa = new LogStreamAggregator();
+
+  const analyser = new LogStreamAnalyser([PacmanLogMatcher]);
+
+  lsa.addSource(
+    createReadStream(
+      join(__dirname, "..", "tests", "fixtures", "pacman.log.txt")
+    ),
+    analyser
+  );
+
+  const events = [];
+
+  for await (const e of lsa) {
+    events.push(e);
+  }
+
+  t.deepEqual(events[0], {
+    date: new Date("Sep 08 19:12 2017"),
+    process: "PACMAN",
+    message: "Running 'pacman -Syu'"
   });
 });

@@ -5,21 +5,19 @@ import { SystemLogMatcher } from './line-matcher';
  *
  */
 export class LogStreamAnalyser {
-  constructor(recordSeparator = /\r?\n/) {
+  constructor(lineMatcher=[SystemLogMatcher],recordSeparator = /\r?\n/) {
     Object.defineProperties(this, {
       referenceDate: { value: new Date() },
+      lineMatcher: { value: lineMatcher },
       recordSeparator: { value: recordSeparator }
     });
   }
 
   async *process(stream) {
-
-    const matcher = [ SystemLogMatcher ];
-
     for await (const chunk of stream) {
       for (const line of chunk.split(this.recordSeparator)) {
 
-        for(const lm of matcher) {
+        for(const lm of this.lineMatcher) {
           const match = line.match(lm.regex);
           if(match) {
             yield lm.process(match, this);

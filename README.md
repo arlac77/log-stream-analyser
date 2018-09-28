@@ -40,6 +40,7 @@ npm install log-stream-analyser
 
 ### Parameters
 
+-   `lineMatcher`   (optional, default `[SystemLogMatcher]`)
 -   `recordSeparator`   (optional, default `/\r?\n/`)
 
 # license

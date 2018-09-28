@@ -36,3 +36,20 @@ export const SystemLogMatcher = {
       }
     )
 };
+
+export const PacmanLogMatcher = {
+  regex: /^\[(?<year>\d+)-(?<month>\d+)-(?<day>\d+)\s+(?<hours>\d+):(?<minutes>\d+)\]\s+\[(?<process>[\w_]+)\]\s+(?<message>.*)/,
+  process: (match, analyser) => {
+    return {
+      date: new Date(
+        match.groups.year,
+        match.groups.month - 1,
+        match.groups.day,
+        match.groups.hours,
+        match.groups.minutes
+      ),
+      process: match.groups.process,
+      message: match.groups.message
+    };
+  }
+};

@@ -1,0 +1,40 @@
+[2017-09-08 19:12] [PACMAN] Running 'pacman -Syu'
+[2017-09-08 19:12] [PACMAN] synchronizing package lists
+[2017-09-08 19:12] [PACMAN] starting full system upgrade
+[2017-09-08 19:14] [PACMAN] Running 'pacman -Syu --force'
+[2017-09-08 19:14] [PACMAN] synchronizing package lists
+[2017-09-08 19:14] [PACMAN] starting full system upgrade
+[2017-09-08 19:14] [ALPM] running 'texinfo-remove.hook'...
+[2017-09-08 19:14] [ALPM] transaction started
+[2017-09-08 19:14] [ALPM] upgraded linux-api-headers (4.7-1 -> 4.10.1-1)
+[2017-09-08 19:14] [ALPM] upgraded tzdata (2016j-1 -> 2017b-1)
+[2017-09-08 19:14] [ALPM] upgraded iana-etc (20161110-1 -> 20170824-1)
+[2017-09-08 19:14] [ALPM] warning: /etc/gshadow installed as /etc/gshadow.pacnew
+[2017-09-08 19:14] [ALPM] warning: /etc/shadow installed as /etc/shadow.pacnew
+[2017-09-08 19:14] [ALPM] warning: /etc/passwd installed as /etc/passwd.pacnew
+[2017-09-08 19:14] [ALPM] warning: /etc/group installed as /etc/group.pacnew
+[2017-09-08 19:14] [ALPM] upgraded filesystem (2016.12-2 -> 2017.03-2)
+[2017-09-08 19:14] [ALPM] upgraded glibc (2.24-2 -> 2.25-7)
+[2017-09-08 19:14] [ALPM-SCRIPTLET] Generating locales...
+[2017-09-08 19:14] [ALPM-SCRIPTLET] Generation complete.
+[2017-09-08 19:14] [ALPM] upgraded attr (2.4.47-2 -> 2.4.47-3)
+[2017-09-08 19:14] [ALPM] upgraded acl (2.2.52-3 -> 2.2.52-4)
+[2017-09-08 19:14] [ALPM] upgraded gcc-libs (6.2.1-1 -> 7.1.1-4)
+[2017-09-08 19:15] [ALPM] upgraded ncurses (6.0+20161224-1 -> 6.0+20170527-1)
+[2017-09-08 19:16] [ALPM-SCRIPTLET] ==> Building image from preset: /etc/mkinitcpio.d/linux-odroid-xu3.preset: 'default'
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> -k 4.9.47-3-ARCH -c /etc/mkinitcpio.conf -g /boot/initramfs-linux.img
+[2017-09-08 19:16] [ALPM-SCRIPTLET] ==> Starting build: 4.9.47-3-ARCH
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> Running build hook: [base]
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> Running build hook: [udev]
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> Running build hook: [autodetect]
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> Running build hook: [modconf]
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> Running build hook: [block]
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> Running build hook: [filesystems]
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> Running build hook: [keyboard]
+[2017-09-08 19:16] [ALPM-SCRIPTLET]   -> Running build hook: [fsck]
+[2017-09-08 19:16] [ALPM-SCRIPTLET] ==> WARNING: No modules were added to the image. This is probably not what you want.
+[2017-09-08 19:16] [ALPM-SCRIPTLET] ==> Creating gzip-compressed initcpio image: /boot/initramfs-linux.img
+[2017-09-08 19:16] [ALPM-SCRIPTLET] ==> Image generation successful
+[2018-09-28 14:45] [PACMAN] Running 'pacman -Syu'
+[2018-09-28 14:45] [PACMAN] synchronizing package lists
+[2018-09-28 14:45] [PACMAN] starting full system upgrade
