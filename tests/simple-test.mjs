@@ -12,8 +12,9 @@ test("SystemLogMatcher install.log", async t => {
   lsa.addSource(
     createReadStream(
       join(__dirname, "..", "tests", "fixtures", "install.log.txt")
-    ),  analyser);
-
+    ),
+    analyser
+  );
 
   const events = [];
 
@@ -26,9 +27,7 @@ test("SystemLogMatcher install.log", async t => {
     host: "pro.maydomain.com",
     process: "softwareupdate_firstrun_tasks",
     pid: 63,
-    scope: undefined,
-    message:
-      "Host swscan.apple.com isReachable = YES"
+    message: "Host swscan.apple.com isReachable = YES"
   });
 
   t.deepEqual(events[1], {
@@ -37,7 +36,6 @@ test("SystemLogMatcher install.log", async t => {
     process: "loginwindow",
     pid: 83,
     scope: "IASGetCurrentInstallPhaseList",
-    message:
-      "no install phase array set"
+    message: "no install phase array set"
   });
 });
