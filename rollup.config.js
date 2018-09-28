@@ -41,7 +41,12 @@ export default [
           "#!/usr/bin/env node --experimental-modules --experimental-worker",
         interop: false
       },
-      plugins: [...plugins, json(), executable()],
+      plugins: [...plugins,
+        json({
+          include: "package.json",
+          preferConst: true,
+          compact: true }),
+        executable()],
       external
     };
   }),
