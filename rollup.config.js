@@ -38,15 +38,18 @@ export default [
         file: pkg.bin[name],
         format: "es",
         banner:
-          "#!/usr/bin/env node --experimental-modules --experimental-worker",
+          '#!/bin/sh\n":" //# comment; exec /usr/bin/env node --experimental-modules --experimental-worker "$0" "$@"',
         interop: false
       },
-      plugins: [...plugins,
+      plugins: [
+        ...plugins,
         json({
           include: "package.json",
           preferConst: true,
-          compact: true }),
-        executable()],
+          compact: true
+        }),
+        executable()
+      ],
       external
     };
   }),
