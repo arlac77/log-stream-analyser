@@ -4,7 +4,8 @@ import { LogStreamAnalyser } from "./log-stream-analyser";
 import {
   SystemLogMatcher,
   PacmanLogMatcher,
-  WeblogicOutMatcher
+  WeblogicOutMatcher,
+  WeblogicLogMatcher
 } from "./line-matcher";
 
 import { version } from "../package.json";
@@ -13,6 +14,7 @@ const lsa = new LogStreamAggregator();
 const analyser = new LogStreamAnalyser([
   SystemLogMatcher,
   PacmanLogMatcher,
+  WeblogicLogMatcher,
   WeblogicOutMatcher
 ]);
 

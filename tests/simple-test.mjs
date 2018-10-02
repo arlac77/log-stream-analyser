@@ -6,7 +6,8 @@ import { LogStreamAnalyser } from "../src/log-stream-analyser";
 import {
   SystemLogMatcher,
   PacmanLogMatcher,
-  WeblogicOutMatcher
+  WeblogicOutMatcher,
+  WeblogicLogMatcher
 } from "../src/line-matcher";
 
 test("SystemLogMatcher install.log", async t => {
@@ -72,7 +73,6 @@ test("PacmanLogMatcher pacman.log", async t => {
 
 test("WeblogicOutMatcher weblogic.out", async t => {
   const lsa = new LogStreamAggregator();
-
   const analyser = new LogStreamAnalyser([WeblogicOutMatcher]);
 
   lsa.addSource(
@@ -95,5 +95,29 @@ test("WeblogicOutMatcher weblogic.out", async t => {
     "bea-id": "BEA-090905",
     message:
       "Disabling the CryptoJ JCE Provider self-integrity check for better startup performance. To enable this check, specify"
+  });
+});
+
+test("WeblogicLogMatcher weblogic.log", async t => {
+  const lsa = new LogStreamAggregator();
+  const analyser = new LogStreamAnalyser([WeblogicLogMatcher]);
+
+  lsa.addSource(
+    createReadStream(
+      join(__dirname, "..", "tests", "fixtures", "weblogic.log.txt")
+    ),
+    analyser
+  );
+
+  const events = [];
+
+  for await (const e of lsa) {
+    events.push(e);
+  }
+
+  t.deepEqual(events[0], {
+    date: new Date("Oct 2 12:00:25 2018"),
+    severity: "Info",
+    scope: "Diagnostics"
   });
 });

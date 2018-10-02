@@ -52,11 +52,22 @@ export const WeblogicOutMatcher = {
   }
 };
 
+export const WeblogicLogMatcher = {
+  regex: /####<(?<date>[^>]+)>\s+<(?<severity>\w+)>\s+<(?<scope>\w+)>(?<fragments>\s+<([^>]+)>)+/,
+  process: (match, analyser) => {
+    return {
+      date: s2d(match.groups.date),
+      severity: match.groups.severity,
+      scope: match.groups.scope
+    };
+  }
+};
+
 function s2d(str) {
   //Sep 15, 2018 10:32:21 PM CEST
-
+  //Oct 2, 2018, 12:00:25,113 AM CEST
   const match = str.match(
-    /(?<month>\w+)\s+(?<day>\d+),\s+(?<year>\d+)\s+(?<hours>\d+):(?<minutes>\d+):(?<seconds>\d+)\s+(?<moon>\w+)\s+(?<tz>\w+)/
+    /(?<month>\w+)\s+(?<day>\d+),\s+(?<year>\d+),?\s+(?<hours>\d+):(?<minutes>\d+):(?<seconds>\d+)(,(?<msecs>\d+))?\s+(?<moon>\w+)\s+(?<tz>\w+)/
   );
   if (match) {
     return new Date(
@@ -66,6 +77,7 @@ function s2d(str) {
       match.groups.hours,
       match.groups.minutes,
       match.groups.seconds
+      //,match.groups.msecs
     );
   }
 }
