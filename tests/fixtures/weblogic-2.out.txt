@@ -1,0 +1,31 @@
+<Nov 22, 2013 2:05:11 PM BRST> <Info> <Security> <BEA-090905> <Disabling CryptoJ JCE Provider self-integrity check for better startup performance. To enable this check, specify -Dweblogic.security.allowCryptoJDefaultJCEVerification=true>
+<Nov 22, 2013 2:05:12 PM BRST> <Info> <Security> <BEA-090906> <Changing the default Random Number Generator in RSA CryptoJ from ECDRBG to FIPS186PRNG. To disable this change, specify -Dweblogic.security.allowCryptoJDefaultPRNG=true>
+<Nov 22, 2013 2:05:12 PM BRST> <Info> <WebLogicServer> <BEA-000377> <Starting WebLogic Server with Java HotSpot(TM) 64-Bit Server VM Version 20.10-b01 from Sun Microsystems Inc.>
+<Nov 22, 2013 2:05:14 PM BRST> <Info> <Management> <BEA-141107> <Version: WebLogic Server 10.3.5.0 Fri Apr 1 20:20:06 PDT 2011 1398638 >
+<Nov 22, 2013 2:05:17 PM BRST> <Info> <Security> <BEA-090065> <Getting boot identity from user.>
+Enter username to boot WebLogic server:Error: Failed to get value from Standard Input
+Enter password to boot WebLogic server:
+<Nov 22, 2013 2:05:17 PM BRST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to STARTING>
+<Nov 22, 2013 2:05:17 PM BRST> <Info> <WorkManager> <BEA-002900> <Initializing self-tuning thread pool>
+<Nov 22, 2013 2:05:17 PM BRST> <Notice> <Log Management> <BEA-170019> <The server log file /u02/app/oracle/OBIEE/user_projects/domains/bifoundation_domain/servers/AdminServer/logs/AdminServer.log is opened. All server side log events will be written to this file.>
+<Nov 22, 2013 2:05:58 PM BRST> <Notice> <Security> <BEA-090082> <Security initializing using security realm myrealm.>
+<Nov 22, 2013 2:05:58 PM BRST> <Critical> <Security> <BEA-090403> <Authentication for user denied>
+<Nov 22, 2013 2:05:58 PM BRST> <Critical> <WebLogicServer> <BEA-000386> <Server subsystem failed. Reason: weblogic.security.SecurityInitializationException: Authentication for user denied
+weblogic.security.SecurityInitializationException: Authentication for user denied
+at weblogic.security.service.CommonSecurityServiceManagerDelegateImpl.doBootAuthorization(CommonSecurityServiceManagerDelegateImpl.java:965)
+at weblogic.security.service.CommonSecurityServiceManagerDelegateImpl.initialize(CommonSecurityServiceManagerDelegateImpl.java:1050)
+at weblogic.security.service.SecurityServiceManager.initialize(SecurityServiceManager.java:873)
+at weblogic.security.SecurityService.start(SecurityService.java:141)
+at weblogic.t3.srvr.SubsystemRequest.run(SubsystemRequest.java:64)
+Truncated. see log file for complete stacktrace
+Caused By: javax.security.auth.login.FailedLoginException: [Security:090304]Authentication Failed: User javax.security.auth.login.LoginException: [Security:090301]Password Not Supplied
+at weblogic.security.providers.authentication.LDAPAtnLoginModuleImpl.login(LDAPAtnLoginModuleImpl.java:261)
+at com.bea.common.security.internal.service.LoginModuleWrapper$1.run(LoginModuleWrapper.java:110)
+at java.security.AccessController.doPrivileged(Native Method)
+at com.bea.common.security.internal.service.LoginModuleWrapper.login(LoginModuleWrapper.java:106)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+Truncated. see log file for complete stacktrace
+>
+<Nov 22, 2013 2:05:58 PM BRST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to FAILED>
+<Nov 22, 2013 2:05:58 PM BRST> <Error> <WebLogicServer> <BEA-000383> <A critical service failed. The server will shut itself down>
+<Nov 22, 2013 2:05:58 PM BRST> <Notice> <WebLogicServer> <BEA-000365> <Server state changed to FORCE_SHUTTING_DOWN>
