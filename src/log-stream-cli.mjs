@@ -1,16 +1,24 @@
 import { createReadStream } from "fs";
 import { LogStreamAggregator } from "./log-stream-aggregator";
 import { LogStreamAnalyser } from "./log-stream-analyser";
-import { SystemLogMatcher, PacmanLogMatcher } from './line-matcher';
+import {
+  SystemLogMatcher,
+  PacmanLogMatcher,
+  WeblogicOutMatcher
+} from "./line-matcher";
 
 import { version } from "../package.json";
 
 const lsa = new LogStreamAggregator();
-const analyser = new LogStreamAnalyser([SystemLogMatcher, PacmanLogMatcher]);
+const analyser = new LogStreamAnalyser([
+  SystemLogMatcher,
+  PacmanLogMatcher,
+  WeblogicOutMatcher
+]);
 
-const [,, ...files] = process.argv;
+const [, , ...files] = process.argv;
 
-files.forEach(file => lsa.addSource( createReadStream(file), analyser));
+files.forEach(file => lsa.addSource(createReadStream(file), analyser));
 
 async function go() {
   for await (const e of lsa) {

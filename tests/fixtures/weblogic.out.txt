@@ -1,0 +1,1 @@
+<Sep 15, 2018 10:32:21 PM CEST> <Info> <Security> <BEA-090905> <Disabling the CryptoJ JCE Provider self-integrity check for better startup performance. To enable this check, specify>

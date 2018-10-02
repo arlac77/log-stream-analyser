@@ -3,7 +3,11 @@ import { join } from "path";
 import { createReadStream } from "fs";
 import { LogStreamAggregator } from "../src/log-stream-aggregator";
 import { LogStreamAnalyser } from "../src/log-stream-analyser";
-import { SystemLogMatcher, PacmanLogMatcher } from '../src/line-matcher';
+import {
+  SystemLogMatcher,
+  PacmanLogMatcher,
+  WeblogicOutMatcher
+} from "../src/line-matcher";
 
 test("SystemLogMatcher install.log", async t => {
   const lsa = new LogStreamAggregator();
@@ -63,5 +67,33 @@ test("PacmanLogMatcher pacman.log", async t => {
     date: new Date("Sep 08 19:12 2017"),
     process: "PACMAN",
     message: "Running 'pacman -Syu'"
+  });
+});
+
+test("WeblogicOutMatcher weblogic.out", async t => {
+  const lsa = new LogStreamAggregator();
+
+  const analyser = new LogStreamAnalyser([WeblogicOutMatcher]);
+
+  lsa.addSource(
+    createReadStream(
+      join(__dirname, "..", "tests", "fixtures", "weblogic.out.txt")
+    ),
+    analyser
+  );
+
+  const events = [];
+
+  for await (const e of lsa) {
+    events.push(e);
+  }
+
+  t.deepEqual(events[0], {
+    date: new Date("Sep 15 10:32:21 2018"),
+    severity: "Info",
+    scope: "Security",
+    "bea-id": "BEA-090905",
+    message:
+      "Disabling the CryptoJ JCE Provider self-integrity check for better startup performance. To enable this check, specify"
   });
 });
