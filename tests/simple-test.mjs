@@ -7,18 +7,15 @@ import {
   SystemLogMatcher,
   PacmanLogMatcher,
   WeblogicOutMatcher,
-  WeblogicLogMatcher
+  WeblogicLogMatcher,DovecotLogMatcher
 } from "../src/line-matcher";
 
-test("SystemLogMatcher install.log", async t => {
+async function makeAnalyser(matcher, fixture) {
   const lsa = new LogStreamAggregator();
-
-  const analyser = new LogStreamAnalyser([SystemLogMatcher]);
+  const analyser = new LogStreamAnalyser([matcher]);
 
   lsa.addSource(
-    createReadStream(
-      join(__dirname, "..", "tests", "fixtures", "install.log.txt")
-    ),
+    createReadStream(join(__dirname, "..", "tests", "fixtures", fixture)),
     analyser
   );
 
@@ -27,6 +24,12 @@ test("SystemLogMatcher install.log", async t => {
   for await (const e of lsa) {
     events.push(e);
   }
+
+  return events;
+}
+
+test("SystemLogMatcher install.log", async t => {
+  const events = await makeAnalyser(SystemLogMatcher, "install.log.txt");
 
   t.deepEqual(events[0], {
     date: new Date("Sep 24 22:04:14 2018"),
@@ -47,22 +50,7 @@ test("SystemLogMatcher install.log", async t => {
 });
 
 test("PacmanLogMatcher pacman.log", async t => {
-  const lsa = new LogStreamAggregator();
-
-  const analyser = new LogStreamAnalyser([PacmanLogMatcher]);
-
-  lsa.addSource(
-    createReadStream(
-      join(__dirname, "..", "tests", "fixtures", "pacman.log.txt")
-    ),
-    analyser
-  );
-
-  const events = [];
-
-  for await (const e of lsa) {
-    events.push(e);
-  }
+  const events = await makeAnalyser(PacmanLogMatcher, "pacman.log.txt");
 
   t.deepEqual(events[0], {
     date: new Date("Sep 08 19:12 2017"),
@@ -72,21 +60,7 @@ test("PacmanLogMatcher pacman.log", async t => {
 });
 
 test("WeblogicOutMatcher weblogic.out", async t => {
-  const lsa = new LogStreamAggregator();
-  const analyser = new LogStreamAnalyser([WeblogicOutMatcher]);
-
-  lsa.addSource(
-    createReadStream(
-      join(__dirname, "..", "tests", "fixtures", "weblogic.out.txt")
-    ),
-    analyser
-  );
-
-  const events = [];
-
-  for await (const e of lsa) {
-    events.push(e);
-  }
+  const events = await makeAnalyser(WeblogicOutMatcher, "weblogic.out.txt");
 
   t.deepEqual(events[0], {
     date: new Date("Sep 15 10:32:21 2018"),
@@ -99,24 +73,20 @@ test("WeblogicOutMatcher weblogic.out", async t => {
 });
 
 test("WeblogicLogMatcher weblogic.log", async t => {
-  const lsa = new LogStreamAggregator();
-  const analyser = new LogStreamAnalyser([WeblogicLogMatcher]);
-
-  lsa.addSource(
-    createReadStream(
-      join(__dirname, "..", "tests", "fixtures", "weblogic.log.txt")
-    ),
-    analyser
-  );
-
-  const events = [];
-
-  for await (const e of lsa) {
-    events.push(e);
-  }
+  const events = await makeAnalyser(WeblogicLogMatcher, "weblogic.log.txt");
 
   t.deepEqual(events[0], {
     date: new Date("Oct 2 12:00:25 2018"),
+    severity: "Info",
+    scope: "Diagnostics"
+  });
+});
+
+test.skip("DovecotLogMatcher", async t => {
+  const events = await makeAnalyser(WeblogicLogMatcher, "dovecot.log.txt");
+
+  t.deepEqual(events[0], {
+    date: new Date("Oct 02 21:35:41 2018"),
     severity: "Info",
     scope: "Diagnostics"
   });

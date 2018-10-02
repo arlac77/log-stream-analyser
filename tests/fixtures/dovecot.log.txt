@@ -1,0 +1,9 @@
+Oct 02 21:35:41 server1 dovecot[299]: imap(hubert)<5001><LYaxwUN3ickKAAEB>: Server shutting down. in=15973 out=55077 deleted=0 expunged=0 trashed=0 hdr_count=1 hdr_bytes=326 body_count=1 body_bytes=21800
+Oct 02 21:35:41 server1 dovecot[299]: imap(hubert)<4978><BECJq0N3v+wKAAEE>: Server shutting down. in=10687 out=22283 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 02 21:35:41 server1 dovecot[299]: imap(hubert)<4925><mlaap0N3284KAAQE>: Server shutting down. in=3188 out=4646 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 02 21:35:41 server1 dovecot[299]: imap(hubert)<4976><qraGq0N3vuwKAAEE>: Server shutting down. in=15426 out=46837 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 02 21:35:41 server1 dovecot[299]: imap(hubert)<4999><WFWvwUN3hskKAAEB>: Server shutting down. in=5919 out=16183 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 02 21:35:41 server1 dovecot[299]: imap(charly)<4384><gLavykJ32t4KAAEG>: Server shutting down. in=763619 out=1513500 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 02 21:35:41 server1 dovecot[299]: imap(hubert)<4924><JOOZp0N33M4KAAQE>: Server shutting down. in=667 out=6185 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 02 21:35:41 server1 dovecot[299]: imap(hubert)<4330><Iq++jUJ3OOsKAAEE>: Server shutting down. in=2013 out=4407 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 02 21:35:41 server1 dovecot[299]: imap(charly)<4386><Sha3ykJ34N4KAAEG>: Server shutting down. in=26798 out=2454635 deleted=1 expunged=0 trashed=0 hdr_count=11 hdr_bytes=7777 body_count=14 body_bytes=2345228

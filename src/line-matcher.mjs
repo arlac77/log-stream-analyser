@@ -39,6 +39,20 @@ export const PacmanLogMatcher = {
   }
 };
 
+// in=%i out=%o deleted=%{deleted} expunged=%{expunged} trashed=%{trashed} hdr_count=%{fetch_hdr_count} hdr_bytes=%{fetch_hdr_bytes} body_count=%{fetch_body_count} body_bytes=%{fetch_body_bytes}
+export const DovecotLogMatcher = {
+  regex: /<(?<date>[^>]+)>\s+<(?<severity>\w+)>\s+<(?<scope>\w+)>\s+<(?<id>[^>]+)>\s+<(?<message>[^>]+)>/,
+  process: (match, analyser) => {
+    return {
+      date: s2d(match.groups.date),
+      severity: match.groups.severity,
+      scope: match.groups.scope,
+      "bea-id": match.groups.id,
+      message: match.groups.message
+    };
+  }
+};
+
 export const WeblogicOutMatcher = {
   regex: /<(?<date>[^>]+)>\s+<(?<severity>\w+)>\s+<(?<scope>\w+)>\s+<(?<id>[^>]+)>\s+<(?<message>[^>]+)>/,
   process: (match, analyser) => {
