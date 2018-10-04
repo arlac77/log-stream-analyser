@@ -5,7 +5,8 @@ import {
   SystemLogMatcher,
   PacmanLogMatcher,
   WeblogicOutMatcher,
-  WeblogicLogMatcher
+  WeblogicLogMatcher,
+  DovecotLogMatcher
 } from "./line-matcher";
 
 import { version } from "../package.json";
@@ -15,7 +16,8 @@ const analyser = new LogStreamAnalyser([
   SystemLogMatcher,
   PacmanLogMatcher,
   WeblogicLogMatcher,
-  WeblogicOutMatcher
+  WeblogicOutMatcher,
+  DovecotLogMatcher
 ]);
 
 const [, , ...files] = process.argv;

@@ -7,7 +7,8 @@ import {
   SystemLogMatcher,
   PacmanLogMatcher,
   WeblogicOutMatcher,
-  WeblogicLogMatcher,DovecotLogMatcher
+  WeblogicLogMatcher,
+  DovecotLogMatcher
 } from "../src/line-matcher";
 
 async function makeAnalyser(matcher, fixture) {
@@ -64,7 +65,7 @@ test("WeblogicOutMatcher weblogic.out", async t => {
 
   t.deepEqual(events[0], {
     date: new Date("Sep 15 10:32:21 2018"),
-    severity: "Info",
+    severity: "info",
     scope: "Security",
     "bea-id": "BEA-090905",
     message:
@@ -77,7 +78,7 @@ test("WeblogicLogMatcher weblogic.log", async t => {
 
   t.deepEqual(events[0], {
     date: new Date("Oct 2 12:00:25 2018"),
-    severity: "Info",
+    severity: "info",
     scope: "Diagnostics"
   });
 });
@@ -86,8 +87,11 @@ test.skip("DovecotLogMatcher", async t => {
   const events = await makeAnalyser(WeblogicLogMatcher, "dovecot.log.txt");
 
   t.deepEqual(events[0], {
-    date: new Date("Oct 02 21:35:41 2018"),
-    severity: "Info",
-    scope: "Diagnostics"
+    date: new Date("Oct 2 21:35:41 2018"),
+    user: "hubert",
+    uid: 5001,
+    server: "server1",
+    process: "dovecot",
+    pid: 299
   });
 });

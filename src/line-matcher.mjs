@@ -39,18 +39,32 @@ export const PacmanLogMatcher = {
   }
 };
 
-// in=%i out=%o deleted=%{deleted} expunged=%{expunged} trashed=%{trashed} hdr_count=%{fetch_hdr_count} hdr_bytes=%{fetch_hdr_bytes} body_count=%{fetch_body_count} body_bytes=%{fetch_body_bytes}
+// in=%i out=%o deleted=%{deleted} expunged=%{expunged} trashed=%{trashed} hdr_count=%{fetch_hdr_count}
+// hdr_bytes=%{fetch_hdr_bytes} body_count=%{fetch_body_count} body_bytes=%{fetch_body_bytes}
+
+const docecotAttributes = [
+  "in",
+  "out",
+  "deleted",
+  "expunged",
+  "trashed",
+  "hdr_count",
+  "hdr_bytes",
+  "body_count",
+  "body_bytes"
+];
+
 export const DovecotLogMatcher = {
-  regex: /<(?<date>[^>]+)>\s+<(?<severity>\w+)>\s+<(?<scope>\w+)>\s+<(?<id>[^>]+)>\s+<(?<message>[^>]+)>/,
-  process: (match, analyser) => {
-    return {
-      date: s2d(match.groups.date),
-      severity: match.groups.severity,
-      scope: match.groups.scope,
-      "bea-id": match.groups.id,
-      message: match.groups.message
-    };
-  }
+  regex: new RegExp(
+    docecotAttributes.map(a => `${a}=(?<${a}>\\d+)`).join("\\s+")
+  ),
+  process: (match, analyser) =>
+    docecotAttributes.reduce((acc, name) => {
+      if (match.groups[name] !== undefined) {
+        acc[name] = parseInt(match.groups.in, 10);
+      }
+      return acc;
+    }, {})
 };
 
 export const WeblogicOutMatcher = {
@@ -58,7 +72,7 @@ export const WeblogicOutMatcher = {
   process: (match, analyser) => {
     return {
       date: s2d(match.groups.date),
-      severity: match.groups.severity,
+      severity: match.groups.severity.toLowerCase(),
       scope: match.groups.scope,
       "bea-id": match.groups.id,
       message: match.groups.message
@@ -71,7 +85,7 @@ export const WeblogicLogMatcher = {
   process: (match, analyser) => {
     return {
       date: s2d(match.groups.date),
-      severity: match.groups.severity,
+      severity: match.groups.severity.toLowerCase(),
       scope: match.groups.scope
     };
   }
