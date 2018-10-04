@@ -39,10 +39,11 @@ export const PacmanLogMatcher = {
   }
 };
 
+// Oct 02 21:35:41 server1 dovecot[299]: imap(hubert)<5001><LYaxwUN3ickKAAEB>: Server shutting down.
 // in=%i out=%o deleted=%{deleted} expunged=%{expunged} trashed=%{trashed} hdr_count=%{fetch_hdr_count}
 // hdr_bytes=%{fetch_hdr_bytes} body_count=%{fetch_body_count} body_bytes=%{fetch_body_bytes}
 
-const docecotAttributes = [
+const dovecotAttributes = [
   "in",
   "out",
   "deleted",
@@ -56,10 +57,11 @@ const docecotAttributes = [
 
 export const DovecotLogMatcher = {
   regex: new RegExp(
-    docecotAttributes.map(a => `${a}=(?<${a}>\\d+)`).join("\\s+")
+    '(?<month>\w+)\s+(?<day>\d\d)\s+(?<hours>\d\d):(?<minutes>\d\d):(?<seconds>\d\d)\s+(?<host>\w+)\s+(?<process>\w+)\[(?<pid>\d+)\]:\s+(?<program>\w+)\((?<user>\w+)\)<(?<uid>\d+)><(?<xxx>\w+)>:\s+(?<message>[^\.]+)\.' +
+    dovecotAttributes.map(a => `${a}=(?<${a}>\\d+)`).join("\\s+")
   ),
   process: (match, analyser) =>
-    docecotAttributes.reduce((acc, name) => {
+    dovecotAttributes.reduce((acc, name) => {
       if (match.groups[name] !== undefined) {
         acc[name] = parseInt(match.groups.in, 10);
       }
