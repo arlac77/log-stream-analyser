@@ -1,0 +1,3 @@
+Oct 04 09:57:29 server1 dhcpd[399]: DHCPREQUEST for 10.1.4.5 from aa:44:63:ba:5f:6f via eth0
+Oct 04 09:57:29 server1 dhcpd[399]: DHCPACK on 10.1.4.5 to aa:44:63:ba:5f:6f via eth0
+
