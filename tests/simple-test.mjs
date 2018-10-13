@@ -73,6 +73,18 @@ test("WeblogicOutMatcher weblogic.out", async t => {
   });
 });
 
+test("WeblogicLogMatcher weblogic-2.out", async t => {
+  const events = await makeAnalyser(WeblogicOutMatcher, "weblogic-2.out.txt");
+
+  t.deepEqual(events[0], {
+    date: new Date("Nov 22 2013 2:05:11"),
+    "bea-id": 'BEA-090905',
+    severity: "info",
+    scope: "Security",
+    message: 'Disabling CryptoJ JCE Provider self-integrity check for better startup performance. To enable this check, specify -Dweblogic.security.allowCryptoJDefaultJCEVerification=true'
+  });
+});
+
 test("WeblogicLogMatcher weblogic.log", async t => {
   const events = await makeAnalyser(WeblogicLogMatcher, "weblogic.log.txt");
 
@@ -82,6 +94,7 @@ test("WeblogicLogMatcher weblogic.log", async t => {
     scope: "Diagnostics"
   });
 });
+
 
 test.skip("DovecotLogMatcher", async t => {
   const events = await makeAnalyser(WeblogicLogMatcher, "dovecot.log.txt");
