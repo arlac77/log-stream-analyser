@@ -70,7 +70,7 @@ export const DovecotLogMatcher = {
 };
 
 export const WeblogicOutMatcher = {
-  regex: /<(?<date>[^>]+)>\s+<(?<severity>\w+)>\s+<(?<scope>\w+)>\s+<(?<id>[^>]+)>\s+<(?<message>[^>]+)>/,
+  regex: /<(?<date>[^>]+)>\s+<(?<severity>\w+)>\s+<(?<scope>[^>]+)>\s+<(?<id>[^>]+)>\s+<(?<message>[^>]+)>/,
   process: (match, analyser) => {
     return {
       date: s2d(match.groups.date),
@@ -83,7 +83,7 @@ export const WeblogicOutMatcher = {
 };
 
 export const WeblogicLogMatcher = {
-  regex: /####<(?<date>[^>]+)>\s+<(?<severity>\w+)>\s+<(?<scope>\w+)>(?<fragments>\s+<([^>]+)>)+/,
+  regex: /####<(?<date>[^>]+)>\s+<(?<severity>\w+)>\s+<(?<scope>[^>]+)>(?<fragments>\s+<([^>]+)>)+/,
   process: (match, analyser) => {
     return {
       date: s2d(match.groups.date),
