@@ -83,6 +83,24 @@ test("WeblogicLogMatcher weblogic-2.out", async t => {
     scope: "Security",
     message: 'Disabling CryptoJ JCE Provider self-integrity check for better startup performance. To enable this check, specify -Dweblogic.security.allowCryptoJDefaultJCEVerification=true'
   });
+
+  t.deepEqual(events[4], {
+    date: new Date("Nov 22 2013 2:05:17"),
+    "bea-id": 'BEA-090065',
+    severity: "info",
+    scope: "Security",
+    message: 'Getting boot identity from user.'
+  });
+
+/*
+  t.deepEqual(events[10], {
+    date: new Date("Nov 22 2013 2:05:58"),
+    "bea-id": 'BEA-000386',
+    severity: "critical",
+    scope: "WebLogicServer",
+    message: 'Server subsystem failed. Reason: weblogic.security.SecurityInitializationException: Authentication for user denied.'
+  });
+*/
 });
 
 test("WeblogicLogMatcher weblogic.log", async t => {
