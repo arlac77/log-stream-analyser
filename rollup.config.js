@@ -27,6 +27,11 @@ const plugins = [
     ],
     exclude: "node_modules/**"
   }),
+  json({
+    include: "package.json",
+    preferConst: true,
+    compact: true
+  }),
   cleanup()
 ];
 
