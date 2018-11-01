@@ -38,7 +38,7 @@ const plugins = [
 export default [
   ...Object.keys(pkg.bin || {}).map(name => {
     return {
-      input: `src/${name}.mjs`,
+      input: `src/${name}-cli.mjs`,
       output: {
         file: pkg.bin[name],
         format: "es",
@@ -46,15 +46,7 @@ export default [
           '#!/bin/sh\n":" //# comment; exec /usr/bin/env node --experimental-modules --experimental-worker "$0" "$@"',
         interop: false
       },
-      plugins: [
-        ...plugins,
-        json({
-          include: "package.json",
-          preferConst: true,
-          compact: true
-        }),
-        executable()
-      ],
+      plugins: [...plugins, executable()],
       external
     };
   }),

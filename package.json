@@ -18,7 +18,7 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "log-stream-cli": "bin/log-stream.mjs"
+    "log-stream": "bin/log-stream.mjs"
   },
   "scripts": {
     "cover": "nyc --temp-directory build/nyc ava",
