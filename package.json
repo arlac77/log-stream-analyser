@@ -58,14 +58,15 @@
   },
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "ava": {
-    "files": [
-      "tests/*-test.js"
-    ],
-    "presets": [
-    ],
     "require": [
       "esm"
-    ]
+    ],
+    "babel": false,
+    "compileEnhancements": false,
+    "files": [
+      "tests/*-test.mjs"
+    ],
+    "presets": []
   },
   "xo": {
     "space": true

@@ -4,29 +4,12 @@ import commonjs from "rollup-plugin-commonjs";
 import executable from "rollup-plugin-executable";
 import json from "rollup-plugin-json";
 import pkg from "./package.json";
-import babel from "rollup-plugin-babel";
 
 const external = ["fs", "path"];
 
 const plugins = [
   resolve(),
   commonjs(),
-  babel({
-    runtimeHelpers: false,
-    externalHelpers: true,
-    babelrc: false,
-    presets: [
-      [
-        "@babel/preset-env",
-        {
-          targets: {
-            safari: "tp"
-          }
-        }
-      ]
-    ],
-    exclude: "node_modules/**"
-  }),
   json({
     include: "package.json",
     preferConst: true,
