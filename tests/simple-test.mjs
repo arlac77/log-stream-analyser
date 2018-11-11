@@ -1,5 +1,5 @@
 import test from "ava";
-import { join } from "path";
+import { join, dirname } from "path";
 import { createReadStream } from "fs";
 import { LogStreamAggregator } from "../src/log-stream-aggregator";
 import { LogStreamAnalyser } from "../src/log-stream-analyser";
@@ -14,6 +14,7 @@ import {
 async function makeAnalyser(matcher, fixture) {
   const lsa = new LogStreamAggregator();
   const analyser = new LogStreamAnalyser([matcher]);
+  const __dirname = dirname(new URL(import.meta.url).pathname);
 
   lsa.addSource(
     createReadStream(join(__dirname, "..", "tests", "fixtures", fixture)),
@@ -78,21 +79,22 @@ test("WeblogicLogMatcher weblogic-2.out", async t => {
 
   t.deepEqual(events[0], {
     date: new Date("Nov 22 2013 2:05:11"),
-    "bea-id": 'BEA-090905',
+    "bea-id": "BEA-090905",
     severity: "info",
     scope: "Security",
-    message: 'Disabling CryptoJ JCE Provider self-integrity check for better startup performance. To enable this check, specify -Dweblogic.security.allowCryptoJDefaultJCEVerification=true'
+    message:
+      "Disabling CryptoJ JCE Provider self-integrity check for better startup performance. To enable this check, specify -Dweblogic.security.allowCryptoJDefaultJCEVerification=true"
   });
 
   t.deepEqual(events[4], {
     date: new Date("Nov 22 2013 2:05:17"),
-    "bea-id": 'BEA-090065',
+    "bea-id": "BEA-090065",
     severity: "info",
     scope: "Security",
-    message: 'Getting boot identity from user.'
+    message: "Getting boot identity from user."
   });
 
-/*
+  /*
   t.deepEqual(events[10], {
     date: new Date("Nov 22 2013 2:05:58"),
     "bea-id": 'BEA-000386',
@@ -112,7 +114,6 @@ test("WeblogicLogMatcher weblogic.log", async t => {
     scope: "Diagnostics"
   });
 });
-
 
 test.skip("DovecotLogMatcher", async t => {
   const events = await makeAnalyser(WeblogicLogMatcher, "dovecot.log.txt");
