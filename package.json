@@ -67,12 +67,9 @@
     "babel": false,
     "compileEnhancements": false,
     "files": [
-      "tests/*-test.mjs"
+      "tests/*-test.js"
     ],
     "presets": []
-  },
-  "xo": {
-    "space": true
   },
   "template": {
     "repository": {
