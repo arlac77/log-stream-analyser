@@ -1,6 +1,7 @@
 import test from "ava";
 import { join, dirname } from "path";
 import { createReadStream } from "fs";
+import { fileURLToPath } from "url";
 import { LogStreamAggregator } from "../src/log-stream-aggregator";
 import { LogStreamAnalyser } from "../src/log-stream-analyser";
 import {
@@ -14,10 +15,10 @@ import {
 async function makeAnalyser(matcher, fixture) {
   const lsa = new LogStreamAggregator();
   const analyser = new LogStreamAnalyser([matcher]);
-  const __dirname = dirname(new URL(import.meta.url).pathname);
+  const here = dirname(fileURLToPath(import.meta.url));
 
   lsa.addSource(
-    createReadStream(join(__dirname, "..", "tests", "fixtures", fixture)),
+    createReadStream(join(here, "..", "tests", "fixtures", fixture)),
     analyser
   );
 
