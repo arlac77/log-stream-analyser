@@ -1,1 +1,2 @@
 ####<Oct 2, 2018, 12:00:25,113 AM CEST> <Info> <Diagnostics> <host.somewhere.com> <server_1> <[ACTIVE] ExecutionThread: '88' for queue: 'weblogic.kernel.Default (self-tuning)'> <<WLS Kernel>> <> <000-111-222-abcd> <123456789> <[severity-value: 64] [rid: 0] [partition-id: 0] [partition-name: DOMAIN] > <BEA-320134>
+####<Feb 15, 2019, 10:25:43,653 AM CET> <Info> <EJB> <myhost> <server_2> <[ACTIVE] > <BEA-010060> <The Message Driven Bean has connected or reconnected to the JMS destination A.B.C.D.>
