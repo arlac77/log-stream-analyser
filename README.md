@@ -7,11 +7,9 @@
 [![Coverage Status](https://coveralls.io/repos/arlac77/log-stream-analyser/badge.svg)](https://coveralls.io/r/arlac77/log-stream-analyser)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/log-stream-analyser/badge.svg)](https://snyk.io/test/github/arlac77/log-stream-analyser)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/log-stream-analyser.svg?style=flat-square)](https://github.com/arlac77/log-stream-analyser/issues)
-[![Stories in Ready](https://badge.waffle.io/arlac77/log-stream-analyser.svg?label=ready&title=Ready)](http://waffle.io/arlac77/log-stream-analyser)
 [![Dependency Status](https://david-dm.org/arlac77/log-stream-analyser.svg)](https://david-dm.org/arlac77/log-stream-analyser)
 [![devDependency Status](https://david-dm.org/arlac77/log-stream-analyser/dev-status.svg)](https://david-dm.org/arlac77/log-stream-analyser#info=devDependencies)
 [![docs](http://inch-ci.org/github/arlac77/log-stream-analyser.svg?branch=master)](http://inch-ci.org/github/arlac77/log-stream-analyser)
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![downloads](http://img.shields.io/npm/dm/log-stream-analyser.svg?style=flat-square)](https://npmjs.org/package/log-stream-analyser)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
