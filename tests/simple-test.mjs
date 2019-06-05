@@ -9,8 +9,9 @@ import {
   PacmanLogMatcher,
   WeblogicOutMatcher,
   WeblogicLogMatcher,
-  DovecotLogMatcher
 } from "../src/line-matcher";
+
+const year = (new Date()).getFullYear();
 
 async function makeAnalyser(matcher, fixture) {
   const lsa = new LogStreamAggregator();
@@ -35,7 +36,7 @@ test("SystemLogMatcher install.log", async t => {
   const events = await makeAnalyser(SystemLogMatcher, "install.log.txt");
 
   t.deepEqual(events[0], {
-    date: new Date("Sep 24 22:04:14 2018"),
+    date: new Date(`Sep 24 22:04:14 ${year}`),
     host: "pro.maydomain.com",
     process: "softwareupdate_firstrun_tasks",
     pid: 63,
@@ -43,7 +44,7 @@ test("SystemLogMatcher install.log", async t => {
   });
 
   t.deepEqual(events[1], {
-    date: new Date("Sep 24 22:04:20 2018"),
+    date: new Date(`Sep 24 22:04:20 ${year}`),
     host: "pro",
     process: "loginwindow",
     pid: 83,
