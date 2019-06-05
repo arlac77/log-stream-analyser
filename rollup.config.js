@@ -6,7 +6,7 @@ import executable from "rollup-plugin-executable";
 import json from "rollup-plugin-json";
 import pkg from "./package.json";
 
-const external = ["fs", "path"];
+const external = [...builtins];
 
 const plugins = [
   resolve(),
