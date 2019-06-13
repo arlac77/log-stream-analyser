@@ -1,4 +1,4 @@
-import { SystemLogMatcher } from './line-matcher';
+import { SystemLogMatcher } from './line-matcher.mjs';
 
 
 /**

@@ -2,14 +2,14 @@ import test from "ava";
 import { join, dirname } from "path";
 import { createReadStream } from "fs";
 import { fileURLToPath } from "url";
-import { LogStreamAggregator } from "../src/log-stream-aggregator";
-import { LogStreamAnalyser } from "../src/log-stream-analyser";
+import { LogStreamAggregator } from "../src/log-stream-aggregator.mjs";
+import { LogStreamAnalyser } from "../src/log-stream-analyser.mjs";
 import {
   SystemLogMatcher,
   PacmanLogMatcher,
   WeblogicOutMatcher,
   WeblogicLogMatcher,
-} from "../src/line-matcher";
+} from "../src/line-matcher.mjs";
 
 const year = (new Date()).getFullYear();
 

@@ -1,15 +1,13 @@
 import { createReadStream } from "fs";
-import { LogStreamAggregator } from "./log-stream-aggregator";
-import { LogStreamAnalyser } from "./log-stream-analyser";
+import { LogStreamAggregator } from "./log-stream-aggregator.mjs";
+import { LogStreamAnalyser } from "./log-stream-analyser.mjs";
 import {
   SystemLogMatcher,
   PacmanLogMatcher,
   WeblogicOutMatcher,
   WeblogicLogMatcher,
   DovecotLogMatcher
-} from "./line-matcher";
-
-import { version } from "../package.json";
+} from "./line-matcher.mjs";
 
 const lsa = new LogStreamAggregator();
 const analyser = new LogStreamAnalyser([
