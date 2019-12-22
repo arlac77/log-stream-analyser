@@ -30,7 +30,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@rollup/plugin-json": "^4.0.0",
+    "@rollup/plugin-json": "^4.0.1",
     "@rollup/plugin-node-resolve": "^6.0.0",
     "ava": "^2.4.0",
     "builtin-modules": "^3.1.0",
