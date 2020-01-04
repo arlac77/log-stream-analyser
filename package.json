@@ -28,7 +28,6 @@
     "prepare": "rollup -c",
     "test": "ava"
   },
-  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-json": "^4.0.1",
     "@rollup/plugin-node-resolve": "^6.0.0",
