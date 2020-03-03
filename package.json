@@ -4,7 +4,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/log-stream-analyser.js",
+  "sideEffects": false,
+  "type": "module",
+  "main": "src/log-stream-analyser.mjs",
   "module": "src/log-stream-analyser.mjs",
   "description": "split log stream into events",
   "keywords": [
@@ -51,6 +53,9 @@
   },
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "template": {
-    "inheritFrom": "arlac77/template-cli-app"
+    "inheritFrom": [
+      "arlac77/template-esm-only",
+      "arlac77/template-github"
+    ]
   }
 }
