@@ -55,6 +55,7 @@
   "template": {
     "inheritFrom": [
       "arlac77/template-esm-only",
+      "arlac77/template-cli-app",
       "arlac77/template-github"
     ]
   }
