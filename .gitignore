@@ -6,5 +6,3 @@ build
 *.node
 .test
 .tmp
-bin
-
