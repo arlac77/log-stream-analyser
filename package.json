@@ -55,9 +55,8 @@
   "homepage": "https://github.com/arlac77/log-stream-analyser#readme",
   "template": {
     "inheritFrom": [
-      "arlac77/template-esm-only",
-      "arlac77/template-cli-app",
-      "arlac77/template-github"
+      "arlac77/template-arlac77-github",
+      "arlac77/template-esm-only"
     ]
   }
 }
