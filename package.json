@@ -7,7 +7,6 @@
   "sideEffects": false,
   "type": "module",
   "main": "src/log-stream-analyser.mjs",
-  "module": "src/log-stream-analyser.mjs",
   "description": "split log stream into events",
   "keywords": [
     "log"
