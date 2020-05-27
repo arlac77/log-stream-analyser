@@ -8,8 +8,7 @@
   "type": "module",
   "main": "./src/log-stream-analyser.mjs",
   "exports": {
-    ".": "./src/log-stream-analyser.mjs",
-    "./": "./"
+    ".": "./src/log-stream-analyser.mjs"
   },
   "description": "split log stream into events",
   "keywords": [
