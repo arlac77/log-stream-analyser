@@ -3,7 +3,7 @@
 [![minified size](https://badgen.net/bundlephobia/min/log-stream-analyser)](https://bundlephobia.com/result?p=log-stream-analyser)
 [![downloads](http://img.shields.io/npm/dm/log-stream-analyser.svg?style=flat-square)](https://npmjs.org/package/log-stream-analyser)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/log-stream-analyser.svg?style=flat-square)](https://github.com/arlac77/log-stream-analyser/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Flog-stream-analyser%2Fbadge&style=flat)](https://actions-badge.atrox.dev/arlac77/log-stream-analyser/goto)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Flog-stream-analyser%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/log-stream-analyser/goto)
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/log-stream-analyser/badge.svg)](https://snyk.io/test/github/arlac77/log-stream-analyser)
@@ -27,32 +27,32 @@ npm install log-stream-analyser
 
 ### Table of Contents
 
--   [LogStreamAggregator](#logstreamaggregator)
-    -   [Properties](#properties)
-    -   [addSource](#addsource)
-        -   [Parameters](#parameters)
--   [LogStreamAnalyser](#logstreamanalyser)
-    -   [Parameters](#parameters-1)
+*   [LogStreamAggregator](#logstreamaggregator)
+    *   [Properties](#properties)
+    *   [addSource](#addsource)
+        *   [Parameters](#parameters)
+*   [LogStreamAnalyser](#logstreamanalyser)
+    *   [Parameters](#parameters-1)
 
 ## LogStreamAggregator
 
 ### Properties
 
--   `sources` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** 
+*   `sources` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** 
 
 ### addSource
 
 #### Parameters
 
--   `stream` **ReadableStream** 
--   `analyser` **LogStreamAnalyster** 
+*   `stream` **ReadableStream** 
+*   `analyser` **LogStreamAnalyster** 
 
 ## LogStreamAnalyser
 
 ### Parameters
 
--   `lineMatcher`   (optional, default `[SystemLogMatcher]`)
--   `recordSeparator`   (optional, default `/\r?\n/`)
+*   `lineMatcher`   (optional, default `[SystemLogMatcher]`)
+*   `recordSeparator`   (optional, default `/\r?\n/`)
 
 # license
 
