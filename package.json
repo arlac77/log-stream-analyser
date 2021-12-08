@@ -8,7 +8,7 @@
   "exports": {
     ".": "./src/log-stream-analyser.mjs"
   },
-  "description": "split log stream into events",
+  "description": "parses a log stream into events",
   "keywords": [
     "log"
   ],
