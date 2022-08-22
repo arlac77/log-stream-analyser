@@ -38,14 +38,14 @@ npm install log-stream-analyser
 
 ### Properties
 
-*   `sources` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** 
+*   `sources` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>**&#x20;
 
 ### addSource
 
 #### Parameters
 
-*   `stream` **ReadableStream** 
-*   `analyser` **LogStreamAnalyster** 
+*   `stream` **ReadableStream**&#x20;
+*   `analyser` **LogStreamAnalyster**&#x20;
 
 ## LogStreamAnalyser
 
