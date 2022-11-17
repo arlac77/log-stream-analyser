@@ -1,4 +1,4 @@
-import { createReadStream } from "fs";
+import { createReadStream } from "node:fs";
 import { LogStreamAggregator } from "./log-stream-aggregator.mjs";
 import { LogStreamAnalyser } from "./log-stream-analyser.mjs";
 import {

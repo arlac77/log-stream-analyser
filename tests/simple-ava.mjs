@@ -1,6 +1,6 @@
 import test from "ava";
-import { join, dirname } from "path";
-import { createReadStream } from "fs";
+import { join, dirname } from "node:path";
+import { createReadStream } from "node:fs";
 import { fileURLToPath } from "url";
 import { LogStreamAggregator } from "../src/log-stream-aggregator.mjs";
 import { LogStreamAnalyser } from "../src/log-stream-analyser.mjs";
