@@ -2,7 +2,8 @@
   "name": "log-stream-analyser",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "exports": {
     ".": "./src/log-stream-analyser.mjs"
