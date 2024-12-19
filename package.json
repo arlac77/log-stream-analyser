@@ -18,7 +18,7 @@
       "email": "markus.felten@gmx.de"
     }
   ],
-  "license": "BSD-2-Clause",
+  "license": "0BSD",
   "bin": {
     "log-stream": "src/log-stream-cli.mjs"
   },
